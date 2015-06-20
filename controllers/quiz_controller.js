@@ -17,11 +17,11 @@ exports.index = function(req,res){
 	if(req.query.search){
 		var search = req.query.search.replace(/\s/g,"%");
 		models.Quiz.findAll({where:["pregunta like ?",'\%'+search+'\%']}).then(function(quizes){
-			res.render('quizes/index.ejs',{quizes:quizes});
+			res.render('quizes/index',{quizes:quizes});
 		}).catch(function(error){next(error);})
 	}else{
 		models.Quiz.findAll().then(function(quizes){
-			res.render('quizes/index.ejs',{quizes:quizes});
+			res.render('quizes/index',{quizes:quizes});
 		}).catch(function(error){next(error);})
 	}
 };
