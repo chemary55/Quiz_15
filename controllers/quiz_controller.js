@@ -2,7 +2,7 @@ var models = require('../models/models.js');
 
 //Autoload - factoriza el codigo si ruta incluye :quizId
 exports.load = function(req,res,next,quizId){
-	models.Quiz.find(quizId).then(
+	models.Quiz.findById(req.params.quizId).then(
 		function(quiz){
 			if(quiz){
 				req.quiz = quiz;
@@ -15,7 +15,7 @@ exports.load = function(req,res,next,quizId){
 //GET /quizes/ :search
 exports.index = function(req,res){
 	if(req.query.search){
-		var search = req.query.search.replace(' ','%');
+		var search = req.query.search.replace(/\s/g,"%");
 		models.Quiz.findAll({where:["pregunta like ?",'\%'+search+'\%']}).then(function(quizes){
 			res.render('quizes/index.ejs',{quizes:quizes});
 		}).catch(function(error){next(error);})
