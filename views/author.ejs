@@ -1,13 +1,27 @@
-<br>
-<label>Nombre: </label>
-<label><%= autor %></label>
-<br>
-<br>
-<label>Foto - video presentación del autor: </label>
-<br>
-<img src="/images/foto.jpg" width=190 height=260 border=2 alt="José María Castrillón">
-<video width="265" height="150" controls>
-  <source src="/videos/video.mp4" type="video/mp4">
-  <source src="/videos/video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video> 
+<!DOCTYPE html>
+<htmal>
+<head>
+  <meta charset=utf-8"><title>Créditos</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+   <table>
+	<tr>
+	<td>
+        <img src="/images/foto.jpg" height="150" borde=2 vspace=5 hspace=5 alt="Fotografía del autor">
+	</td>
+	<td>
+	<video controls width="265" height="150">
+	<source src="/videos/video.webm" type="video/webm">
+	<source src="/videos/video.mp4" type="video/mp4">
+  	</video>
+	</td>
+	</tr>
+
+	<tr>
+	<td><h5>José María Castrillón</h5></td>
+  	<td><h5> Vídeo de presentaión</h5></td>
+	</tr>
+    </table>
+</body>
+</html>
