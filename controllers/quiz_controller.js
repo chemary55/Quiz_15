@@ -58,6 +58,7 @@ exports.create = function(req,res){
 		.validate()
 		.then(
 			function(err){
+				if (err) {
 				res.render('quizes/new', {quiz:quiz, errors: err.errors});
 			} else {
 			    quiz // save: guarda en DB campos pregunta y respuesta
