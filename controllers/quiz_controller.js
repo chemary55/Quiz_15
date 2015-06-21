@@ -60,7 +60,7 @@ exports.create = function(req,res){
 		var errores = new Array();
 		for (var prop in errors) 
 			errores[i++]={message:errors[prop]};
-		res.render('quizes/new',{quiz:quiz,errors:errores});
+		res.render('quizes/new',{quiz:quiz, errors:errores});
 	} else {
 		quiz.save({fields:["pregunta","respuesta" ]})
 		.then(function(){
