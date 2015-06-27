@@ -40,6 +40,16 @@ app.use(function(req, res, next) {
   next();
 });
 
+//Expiración de la sesión transcurridos 2 minutos (120000 milisegundos)
+app.use(function(req, res, next){
+  var tiempo = 120000;
+  if(req.session.cookie){
+    req.session.cookie.expires = new Date(Date.now()+tiempo);
+    req.session.cookie.maxAge = tiempo;
+  }
+  next();
+});
+
 app.use('/', routes);
 
 
